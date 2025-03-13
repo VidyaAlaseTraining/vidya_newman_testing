@@ -12,11 +12,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      # Use the forked actions
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: VidyaAlaseTraining/checkout@v3  # Your forked version
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: VidyaAlaseTraining/setup-node@v3  # Your forked version
         with:
           node-version: '18'
 
@@ -27,4 +28,4 @@ jobs:
         run: ls -lah
 
       - name: Run Postman Collection
-        run: sample-collection.json -e Weather_API_Testing_postman_environment.json -r json --reporter-json-export results.json
+        run: newman run sample-collection.json -e Weather_API_Testing_postman_environment.json -r json --reporter-json-export results.json
