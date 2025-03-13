@@ -1,0 +1,36 @@
+name: Run Newman Tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install Newman
+        run: npm install -g newman
+      - name: "Install newman reporter"
+        run: "npm install -g newman-reporter-html"
+      - name: Make Directory for results
+        run: mkdir -p results
+      - name: Run Postman Collection
+        run: newman run sample-collection.json -e Weather_API_Testing_postman_environment.json -r json --reporters cli,html --reporter-html-export results/Day9Report1.html
+      - name: Output the run Details
+        uses: actions/upload-artifact@v4
+        with:
+          name: RunReports
+          path: results
+      - name: Download
+        uses: actions/download-artifact@v4
+        with:
+          name: RunReports
+          path: results
