@@ -12,19 +12,26 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      # Checkout the repository manually (git clone)
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        run: |
+          git clone https://github.com/VidyaAlaseTraining/vidya_newman_testing.git
+          cd vidya_newman_testing
 
+      # Install Node.js manually
       - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+        run: |
+          curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+          sudo apt-get install -y nodejs
 
+      # Install Newman globally
       - name: Install Newman
         run: npm install -g newman
 
+      # Check the contents of the directory (Debugging)
       - name: Debug File Check
         run: ls -lah
 
+      # Run the Postman Collection using Newman
       - name: Run Postman Collection
         run: newman run sample-collection.json -e Weather_API_Testing_postman_environment.json -r json --reporter-json-export results.json
