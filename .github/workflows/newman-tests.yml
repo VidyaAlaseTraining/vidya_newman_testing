@@ -14,10 +14,10 @@ jobs:
     steps:
       # Use the forked actions
       - name: Checkout Repository
-        uses: VidyaAlaseTraining/checkout@v3  # Your forked version
+        uses: actions/checkout@v3  # Your forked version
 
       - name: Install Node.js
-        uses: VidyaAlaseTraining/setup-node@v3  # Your forked version
+        uses: actions/setup-node@v3  # Your forked version
         with:
           node-version: '18'
 
