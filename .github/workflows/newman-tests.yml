@@ -1,4 +1,5 @@
 name: Run Newman Tests
+
 on:
   push:
     branches:
@@ -12,11 +13,17 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+
       - name: Install Newman
         run: npm install -g newman
+
+      - name: Debug File Check
+        run: ls -lah
+	
       - name: Run Postman Collection
         run: newman run sample-collection.json -e Weather_API_Testing_postman_environment.json -r json --reporter-json-export results.json
