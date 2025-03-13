@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "73cf6e9c-563a-44a5-b7f9-bd74df573c89",
+		"name": "Day9_newman_Github_Action",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42830093"
+	},
+	"item": [
+		{
+			"name": "Weather_City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?appid={{api_key}}&q=Chicago",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "appid",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "q",
+							"value": "Chicago"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weather_London",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?appid={{api_key}}&q=London",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "appid",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "q",
+							"value": "London"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Weather_Lon_Lat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?appid={{api_key}}&lon={{lon}}&lat={{lat}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "appid",
+							"value": "{{api_key}}"
+						},
+						{
+							"key": "lon",
+							"value": "{{lon}}"
+						},
+						{
+							"key": "lat",
+							"value": "{{lat}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
