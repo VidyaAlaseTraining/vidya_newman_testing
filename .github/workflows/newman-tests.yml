@@ -19,4 +19,4 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
       - name: Run Postman Collection
-        run: newman run sample-collection.json -r json --reporter-json-export results.json
+        run: newman run sample-collection.json -e Weather_API_Testing_postman_environment.json -r json --reporter-json-export results.json
